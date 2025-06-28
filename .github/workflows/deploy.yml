@@ -26,7 +26,7 @@ jobs:
 
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
-        with:
+        env:
           DISTRIBUTION: E396IHWV43DUOM
           PATHS: "/*"
           AWS_REGION: eu-west-2
