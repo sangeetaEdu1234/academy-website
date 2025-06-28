@@ -1,1 +1,1 @@
-# academy-website
+This repository contains the academy code taken from the front end HTML from GoDaddy.
