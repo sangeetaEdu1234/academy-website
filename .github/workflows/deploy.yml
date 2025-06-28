@@ -1,9 +1,10 @@
+
 name: Deploy to S3
 
 on:
   push:
     branches:
-      - "**"  # or your branch name
+      - "**"  # trigger on all branches
 
 jobs:
   deploy:
@@ -25,9 +26,10 @@ jobs:
 
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
-        with:
-          distribution: E396IHWV43DUOM
-          paths: "/*"
-          aws-region: eu-west-2
-          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        env:
+          DISTRIBUTION: E396IHWV43DUOM
+          PATHS: "/*"
+          AWS_REGION: eu-west-2
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
